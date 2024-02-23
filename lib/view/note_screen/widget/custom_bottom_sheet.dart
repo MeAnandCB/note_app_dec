@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_dec/controller/note_screen_controller.dart';
 import 'package:todo_dec/utils/constants/color_constants.dart';
 
 class CustomBottomSheet extends StatelessWidget {
@@ -24,6 +25,7 @@ class CustomBottomSheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextFormField(
+              controller: NoteScreenController.titleController,
               decoration: InputDecoration(
                   label: Text("Title"),
                   border: OutlineInputBorder(),
@@ -34,6 +36,7 @@ class CustomBottomSheet extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: NoteScreenController.desController,
               decoration: InputDecoration(
                   label: Text("Description"),
                   border: OutlineInputBorder(),
@@ -44,6 +47,7 @@ class CustomBottomSheet extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: NoteScreenController.dateController,
               decoration: InputDecoration(
                   label: Text("Date"),
                   border: OutlineInputBorder(),
