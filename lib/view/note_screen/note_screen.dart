@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:todo_dec/controller/note_screen_controller.dart';
 import 'package:todo_dec/utils/constants/color_constants.dart';
@@ -12,14 +14,8 @@ class NoteScreen extends StatefulWidget {
 }
 
 class _NoteScreenState extends State<NoteScreen> {
-  List colorsList = [
-    ColorConstants.redNote,
-    ColorConstants.blueNote,
-    ColorConstants.greenNote,
-    ColorConstants.yellowNote,
-  ];
-
   NoteScreenController noteScreenController = NoteScreenController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,13 +24,14 @@ class _NoteScreenState extends State<NoteScreen> {
         backgroundColor: ColorConstants.mainLightGrey,
         onPressed: () {
           showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (context) => CustomBottomSheet(
                     onSavePressed: () {
                       // function to add a new note
                       noteScreenController.addData();
-
                       setState(() {});
+                      NoteScreenController.clearControllers();
 
                       Navigator.pop(context);
                     },
